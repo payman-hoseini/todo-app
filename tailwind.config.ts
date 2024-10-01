@@ -9,9 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        "background": "var(--background)",
+        "todo-back": "var(--todo-back)",
+        "complete" : "var(--complete)",
+        "text-one": "var(--text-one)",
+        "input": "var(--input)",
+        "text-two": "var(--text-two)",
+        "todo": "var(--todo)",
       },
+      fontFamily: {
+        Josefin : ["Josefin"]
+      }
     },
   },
   plugins: [],
