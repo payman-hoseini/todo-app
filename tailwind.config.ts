@@ -16,6 +16,8 @@ const config: Config = {
         "input": "var(--input)",
         "text-two": "var(--text-two)",
         "todo": "var(--todo)",
+        "hover" : "var(--hover)",
+        "Bright-Blue" : "hsl(220, 98%, 61%)"
       },
       fontFamily: {
         Josefin : ["Josefin"]
