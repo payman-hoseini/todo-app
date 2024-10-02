@@ -23,7 +23,7 @@
   /*  active */
   --text-two : hsl(236, 9%, 61%);
   --todo : hsl(235, 19%, 35%);
-  --hover : hsl(236, 33%, 92%);
+  --hover : hsl(235, 19%, 35%);
   .backgroundDes {
     background: url(./../../public/images/bg-desktop-light.jpg);
     background-repeat: no-repeat;
