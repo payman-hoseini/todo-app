@@ -19,7 +19,7 @@ export default function TodoItem({todoTitle , todoDone} : {todoTitle : string , 
             <button onClick={changeStateHandler} className={`${todoDone ? "w-6 h-6 bg-gradient-to-t from-grad1 to-grad2 border border-text-one  hover:border-none rounded-full" : "w-6 h-6 bg-todo-back border border-text-one hover:bg-gradient-to-t from-grad1 to-grad2 hover:border-none rounded-full"}`}>
               <p className={`${todoDone ? "checked w-[22px] h-[22px] rounded-full mx-auto bg-gradient-to-br from-grad1 to-grad2" : "w-[22px] h-[22px] bg-todo-back rounded-full mx-auto"}`}></p>
             </button>
-            <p className="font-Josefin ml-5 text-todo">{todoTitle}</p>
+            <p className={`${todoDone ? "font-Josefin ml-5 text-text-one line-through" : "font-Josefin ml-5 text-todo"}`}>{todoTitle}</p>
           </div>
           <button onClick={deleteTodoHandler} className="hidden group-hover:block">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">

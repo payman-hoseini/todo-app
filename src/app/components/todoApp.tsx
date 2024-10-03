@@ -24,7 +24,7 @@ export default function TodoApp (){
     return (
         <main className={`${theme} w-screen h-screen bg-background`}>
           <div className="max-w-[1440px] mx-auto backgroundDes">
-            <div className="w-[40%] mx-auto py-16">
+            <div className="md:w-[40%] w-[90%] mx-auto py-16">
               <div className="flex justify-between">
                   <h1 className="text-white font-Josefin font-bold tracking-[1rem] text-4xl">TODO</h1>
                   <button onClick={changeThemeHandler}>
