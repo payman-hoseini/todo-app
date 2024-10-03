@@ -1,11 +1,12 @@
 'use client'
 import { useAppSelector } from "../store/hooks"
-import { selectTodos } from "../store/todoSlice"
+import { selectTodos, selectUndoneTodos } from "../store/todoSlice"
 import TodoItem from "./todoItem"
 
 
 export default function TodoList(){
     const todos = useAppSelector(selectTodos)
+    const undoneTodos = useAppSelector(selectUndoneTodos)
     return (
         <>
             <div className="bg-todo-back mt-5 rounded shadow-xl">
@@ -15,7 +16,7 @@ export default function TodoList(){
                 
                 <div className="px-4 font-Josefin flex items-center justify-between text-text-two py-3">
                     <div>
-                        <p className="text-sm">5 items left</p>
+                        <p className="text-sm">{undoneTodos} items left</p>
                     </div>
                     <div className="space-x-3 font-bold text-sm">
                         <button className="text-Bright-Blue hover:text-hover">All</button>
