@@ -1,9 +1,9 @@
 'use client'
 
-import { useRef, useState } from "react"
+import { useState } from "react"
 import TodoList from "./todoList"
-import { useAppDispatch, useAppSelector } from "../store/hooks"
-import { addTodo, selectTodos } from "../store/todoSlice"
+import { useAppDispatch } from "../store/hooks"
+import { addTodo } from "../store/todoSlice"
 
 export default function TodoApp (){
     const [theme , setTheme] = useState("dark")
@@ -17,11 +17,11 @@ export default function TodoApp (){
         if(todoTitle != "" && e.key == "Enter"){
           dispatch(addTodo(todoTitle))
         }
-        else {
-          setTodoTitle(e.target.value)
-        }
     }
-    const todos = useAppSelector(selectTodos)
+    function setTodoTitleHandler (e : any){
+      setTodoTitle(e.target.value)
+      console.log(todoTitle)
+    }
     return (
         <main className={`${theme} w-screen h-screen bg-background`}>
           <div className="max-w-[1440px] mx-auto backgroundDes">
@@ -40,7 +40,7 @@ export default function TodoApp (){
               </div>
               <div className="bg-todo-back flex items-center px-5 py-4 rounded shadow-xl mt-8">
                   <div className="w-6 h-6 border border-text-one rounded-full"></div>
-                  <input onKeyDown={addNewTodoHandler} type="text" placeholder="Create a new todo..." className="bg-todo-back ml-5 font-Josefin outline-none"/>
+                  <input onChange={setTodoTitleHandler} onKeyDown={addNewTodoHandler} type="text" placeholder="Create a new todo..." className="bg-todo-back ml-5 font-Josefin outline-none"/>
               </div>
               <TodoList />
             </div>
