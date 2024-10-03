@@ -20,7 +20,6 @@ export default function TodoApp (){
     }
     function setTodoTitleHandler (e : any){
       setTodoTitle(e.target.value)
-      console.log(todoTitle)
     }
     return (
         <main className={`${theme} w-screen h-screen bg-background`}>
