@@ -24,11 +24,19 @@ export const todoSlice = createSlice({
         title : action.payload,
         done : false
       })
+    },
+    changeTodoState : (state,action) => {
+      state.TodoList.map(todo => {
+        if(todo.title == action.payload){
+          todo.done = !todo.done
+        }
+      }
+      )
     }
   }
 })
 
-export const { addTodo } = todoSlice.actions
+export const { addTodo , changeTodoState } = todoSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectTodos = (state: RootState) => state.todos.TodoList

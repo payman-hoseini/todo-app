@@ -1,12 +1,20 @@
+'use client'
+
+import { useAppDispatch } from "../store/hooks";
+import { changeTodoState } from "../store/todoSlice";
 
 export default function TodoItem({todoTitle , todoDone} : {todoTitle : string , todoDone : boolean}) {
+    const dispatch = useAppDispatch()
+    function changeStateHandler(){
+        dispatch(changeTodoState(todoTitle))
+    }
   return (
     <ul>
       <li className="border-b border-b-text-one py-4">
         <div className="flex items-center justify-between px-5 hover:cursor-pointer group">
           <div className="flex items-center">
-            <button className="w-6 h-6 bg-todo-back border border-text-one hover:bg-gradient-to-t from-grad1 to-grad2 hover:border-none rounded-full">
-              <p className="w-[22px] h-[22px] bg-todo-back rounded-full mx-auto"></p>
+            <button onClick={changeStateHandler} className={`${todoDone ? "w-6 h-6 bg-gradient-to-t from-grad1 to-grad2 border border-text-one  hover:border-none rounded-full" : "w-6 h-6 bg-todo-back border border-text-one hover:bg-gradient-to-t from-grad1 to-grad2 hover:border-none rounded-full"}`}>
+              <p className={`${todoDone ? "checked w-[22px] h-[22px] rounded-full mx-auto bg-gradient-to-br from-grad1 to-grad2" : "w-[22px] h-[22px] bg-todo-back rounded-full mx-auto"}`}></p>
             </button>
             <p className="font-Josefin ml-5 text-todo">{todoTitle}</p>
           </div>
