@@ -26,11 +26,28 @@ export const todoSlice = createSlice({
   initialState,
   reducers: {
     addTodo : (state,action) => {
-      state.TodoList.push({
-        title : action.payload,
-        done : false
-      })
-      state.undoneTodos++;
+      if(state.TodoList.length == 0){
+        state.TodoList.push({
+          title : action.payload,
+          done : false
+        })
+        state.undoneTodos++;
+      }
+      else{
+        let flag = false;
+        state.TodoList.map(todo => {
+          if(todo.title == action.payload){
+            flag = true
+          }
+        })
+        if(!flag){
+          state.TodoList.push({
+            title : action.payload,
+            done : false
+          })
+          state.undoneTodos++;
+        }
+      }
     },
     deleteTodo : (state , action) => {
       state.TodoList = state.TodoList.filter(todo => {

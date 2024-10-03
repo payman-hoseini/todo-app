@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from "../store/hooks"
 import { clearCompletedTodos, selectActiveTodos, selectCompletedTodos, selectTodos, selectUndoneTodos, showActivelist, showCompletedlist } from "../store/todoSlice"
 import TodoItem from "./todoItem"
 
-
 export default function TodoList(){
     const allTodos = useAppSelector(selectTodos)
     const activeTodos = useAppSelector(selectActiveTodos)
@@ -15,19 +14,19 @@ export default function TodoList(){
     const [allFlag , setAllFlag] = useState(true)
     const [activeFlag , setActiveFlag] = useState(false)
     const [completedFlag , setCompletedFlag] = useState(false)
-
+    
 
     return (
         <>
             <div className="bg-todo-back mt-5 rounded shadow-xl">
                 {
-                   allFlag && allTodos.map(todo => <TodoItem todoTitle={todo.title} todoDone = {todo.done} key={todo.title}/>)
+                   allFlag && allTodos.map(todo => <TodoItem todoTitle={todo.title} todoDone = {todo.done} key={crypto.randomUUID()}/>)
                 }
                 {
-                    activeFlag && activeTodos.map(todo => <TodoItem todoTitle={todo.title} todoDone = {todo.done} key={todo.title}/>)
+                    activeFlag && activeTodos.map(todo => <TodoItem todoTitle={todo.title} todoDone = {todo.done} key={crypto.randomUUID()}/>)
                 }
                 {
-                    completedFlag && completedTodos.map(todo => <TodoItem todoTitle={todo.title} todoDone = {todo.done} key={todo.title}/>)
+                    completedFlag && completedTodos.map(todo => <TodoItem todoTitle={todo.title} todoDone = {todo.done} key={crypto.randomUUID()}/>)
                 }
                 <div className="px-4 font-Josefin flex items-center justify-between text-text-two py-3">
                     <div>
