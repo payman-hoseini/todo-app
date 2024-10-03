@@ -28,7 +28,7 @@ export default function TodoList(){
                 {
                     completedFlag && completedTodos.map(todo => <TodoItem todoTitle={todo.title} todoDone = {todo.done} key={crypto.randomUUID()}/>)
                 }
-                <div className="px-4 font-Josefin flex items-center justify-between text-text-two py-3">
+                {(allTodos.length >0) && <div className="px-4 font-Josefin flex items-center justify-between text-text-two py-3">
                     <div>
                         <p className="text-sm">{undoneTodos} items left</p>
                     </div>
@@ -40,7 +40,7 @@ export default function TodoList(){
                     <div>
                         <button onClick={() => {dispatch(clearCompletedTodos())}} className="text-sm hover:text-hover">Clear Completed</button>
                     </div>
-                </div>
+                </div>}
             </div>
         </>
     )

@@ -58,6 +58,15 @@ export const todoSlice = createSlice({
             state.undoneTodos--
         }
       })
+      state.Activelist = state.TodoList.filter(todo => {
+        if(todo.done == false)
+          return todo
+      }
+      )
+      state.CompletedList = state.TodoList.filter(todo => {
+        if(todo.done == true)
+          return todo
+      })
     },
     changeTodoState : (state,action) => {
       state.TodoList.map(todo => {
