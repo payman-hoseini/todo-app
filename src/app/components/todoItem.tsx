@@ -1,12 +1,15 @@
 'use client'
 
 import { useAppDispatch } from "../store/hooks";
-import { changeTodoState } from "../store/todoSlice";
+import { changeTodoState, deleteTodo } from "../store/todoSlice";
 
 export default function TodoItem({todoTitle , todoDone} : {todoTitle : string , todoDone : boolean}) {
     const dispatch = useAppDispatch()
     function changeStateHandler(){
         dispatch(changeTodoState(todoTitle))
+    }
+    function deleteTodoHandler(){
+        dispatch(deleteTodo(todoTitle))
     }
   return (
     <ul>
@@ -18,7 +21,7 @@ export default function TodoItem({todoTitle , todoDone} : {todoTitle : string , 
             </button>
             <p className="font-Josefin ml-5 text-todo">{todoTitle}</p>
           </div>
-          <button className="hidden group-hover:block">
+          <button onClick={deleteTodoHandler} className="hidden group-hover:block">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
               <path
                 fill="#494C6B"

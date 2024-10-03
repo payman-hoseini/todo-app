@@ -32,6 +32,16 @@ export const todoSlice = createSlice({
       })
       state.undoneTodos++;
     },
+    deleteTodo : (state , action) => {
+      state.TodoList = state.TodoList.filter(todo => {
+        if(todo.title != action.payload)
+          return todo
+        if(todo.title == action.payload){
+          if(todo.done == false)
+            state.undoneTodos--
+        }
+      })
+    },
     changeTodoState : (state,action) => {
       state.TodoList.map(todo => {
         if(todo.title == action.payload){
@@ -93,7 +103,7 @@ export const todoSlice = createSlice({
   }
 })
 
-export const { addTodo , changeTodoState , showActivelist , showCompletedlist , clearCompletedTodos } = todoSlice.actions
+export const { addTodo , changeTodoState , showActivelist , showCompletedlist , clearCompletedTodos , deleteTodo } = todoSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectTodos = (state: RootState) => state.todos.TodoList
