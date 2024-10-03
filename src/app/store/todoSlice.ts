@@ -83,11 +83,17 @@ export const todoSlice = createSlice({
       }
       )
     },
+    clearCompletedTodos : (state) => {
+      state.TodoList = state.TodoList.filter(todo => {
+        if(todo.done == false)
+          return todo
+      })
+    }
 
   }
 })
 
-export const { addTodo , changeTodoState , showActivelist , showCompletedlist } = todoSlice.actions
+export const { addTodo , changeTodoState , showActivelist , showCompletedlist , clearCompletedTodos } = todoSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectTodos = (state: RootState) => state.todos.TodoList

@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react"
 import { useAppDispatch, useAppSelector } from "../store/hooks"
-import { selectActiveTodos, selectCompletedTodos, selectTodos, selectUndoneTodos, showActivelist, showCompletedlist } from "../store/todoSlice"
+import { clearCompletedTodos, selectActiveTodos, selectCompletedTodos, selectTodos, selectUndoneTodos, showActivelist, showCompletedlist } from "../store/todoSlice"
 import TodoItem from "./todoItem"
 
 
@@ -39,7 +39,7 @@ export default function TodoList(){
                         <button onClick={() => {dispatch(showCompletedlist()); setAllFlag(false); setActiveFlag(false); setCompletedFlag(true)}} className={`${completedFlag  ?  "text-Bright-Blue hover:text-hover" : "hover:text-hover"}`}>Completed</button>
                     </div>
                     <div>
-                        <button className="text-sm hover:text-hover">Clear Completed</button>
+                        <button onClick={() => {dispatch(clearCompletedTodos())}} className="text-sm hover:text-hover">Clear Completed</button>
                     </div>
                 </div>
             </div>
