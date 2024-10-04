@@ -6,21 +6,21 @@ import { useAppDispatch } from "../store/hooks"
 import { addTodo } from "../store/todoSlice"
 
 export default function TodoApp (){
-    const [theme , setTheme] = useState("dark")
+    const [theme , setTheme] = useState("dark");
     function changeThemeHandler (){
-      theme == "dark" ? setTheme("light") : setTheme("dark")
-    }
+      theme == "dark" ? setTheme("light") : setTheme("dark");
+    };
 
-    const dispatch = useAppDispatch()
-    const [todoTitle , setTodoTitle] = useState("")
+    const dispatch = useAppDispatch();
+    const [todoTitle , setTodoTitle] = useState("");
     function addNewTodoHandler(e : React.KeyboardEvent<HTMLInputElement>) {
         if(todoTitle != "" && e.key == "Enter"){
-          dispatch(addTodo(todoTitle))
+          dispatch(addTodo(todoTitle));
         }
-    }
+    };
     function setTodoTitleHandler (e : React.ChangeEvent<HTMLInputElement>){
-      setTodoTitle(e.target.value)
-    }
+      setTodoTitle(e.target.value);
+    };
     return(
       <main className={`${theme} w-screen h-screen bg-background`}>
           <div className="max-w-[1440px] mx-auto backgroundDes">
