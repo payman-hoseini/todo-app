@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import React, { useState } from "react"
 import TodoList from "./todoList"
 import { useAppDispatch } from "../store/hooks"
 import { addTodo } from "../store/todoSlice"
@@ -13,12 +13,12 @@ export default function TodoApp (){
 
     const dispatch = useAppDispatch()
     const [todoTitle , setTodoTitle] = useState("")
-    function addNewTodoHandler(e : any) {
+    function addNewTodoHandler(e : React.KeyboardEvent<HTMLInputElement>) {
         if(todoTitle != "" && e.key == "Enter"){
           dispatch(addTodo(todoTitle))
         }
     }
-    function setTodoTitleHandler (e : any){
+    function setTodoTitleHandler (e : React.ChangeEvent<HTMLInputElement>){
       setTodoTitle(e.target.value)
     }
     return (
