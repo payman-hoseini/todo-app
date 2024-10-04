@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from "react"
+import  { useState } from "react"
 import TodoList from "./todoList"
 import { useAppDispatch } from "../store/hooks"
 import { addTodo } from "../store/todoSlice"
@@ -8,7 +8,7 @@ import { addTodo } from "../store/todoSlice"
 export default function TodoApp (){
     const [theme , setTheme] = useState("dark")
     function changeThemeHandler (){
-        theme == "dark" ? setTheme("light") : setTheme("dark")
+      theme == "dark" ? setTheme("light") : setTheme("dark")
     }
 
     const dispatch = useAppDispatch()
