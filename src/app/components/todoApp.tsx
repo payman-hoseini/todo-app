@@ -9,7 +9,13 @@ import { addTodo } from "../store/todoSlice";
 export default function TodoApp (){
     const [theme , setTheme] = useState("dark");
     function changeThemeHandler (){
-      theme == "dark" ? setTheme("light") : setTheme("dark");
+      // theme == "dark" ? setTheme("light") : setTheme("dark");
+      if(theme == "dark"){
+        setTheme("light")
+      }
+      else{
+        setTheme("dark")
+      }
     };
 
     const dispatch = useAppDispatch();
