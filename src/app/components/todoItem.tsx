@@ -33,5 +33,5 @@ export default function TodoItem({todoTitle , todoDone} : {todoTitle : string , 
         </div>
       </li>
     </ul>
-  );
+  )
 }

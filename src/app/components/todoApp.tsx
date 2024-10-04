@@ -22,7 +22,7 @@ export default function TodoApp (){
       setTodoTitle(e.target.value)
     }
     return(
-        <main className={`${theme} w-screen h-screen bg-background`}>
+      <main className={`${theme} w-screen h-screen bg-background`}>
           <div className="max-w-[1440px] mx-auto backgroundDes">
             <div className="md:w-[40%] w-[90%] mx-auto py-16">
               <div className="flex justify-between">
